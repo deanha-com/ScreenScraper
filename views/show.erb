@@ -1,0 +1,45 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Dean's Screen Scraping App</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+
+<h1 class="text-center">Dean's Screen Scraping App</h1><br><br>
+
+<div class="container-fluid">
+<p class="text-left">
+  This is a app created using Sinatra and the Nokiguri gem. The purpose of this app is to scrape blog post from other websites and have it listed within a table.
+<br>
+Gems: Nokogiri,
+      Open URI,
+      Sinatra.
+<br>
+Styling : Bootstrap
+</p><hr>
+<table class="table table-hover">
+<thead>
+  <tr class="info">
+    <th>TITLE</th>
+    <th>POST</th>
+    <th>DATE</th>
+  </tr>
+</thead>
+  <tbody>
+  <tr>
+
+<% @doc.css('.container-wrap, #post-area, .post-content').each do |items| %>
+    <td><%= @title = items.css('#post-area .title').text %></td>
+    <td><%= @content = items.css('#post-area p') %></td>
+    <td><%= @date = items.css('#post-area .date') %></td>
+<% end %>
+  </tr>
+</tbody>
+</table>
+</div>  
+
+</body>
+</html> 
