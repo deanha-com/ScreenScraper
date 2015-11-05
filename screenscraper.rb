@@ -9,5 +9,5 @@ get '/' do
 	url = "http://www.deanha.com/blog/"
 	@doc = Nokogiri::HTML(open(url))
 
-	erb :show, layout :show
+	erb :show
 end
